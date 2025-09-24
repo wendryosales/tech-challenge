@@ -13,6 +13,11 @@
   - Diagrama: [Diagrama Questão 2](/answers/q2/diagram.png)
   - Draw.io: [Link Draw.io](https://drive.google.com/file/d/10_ur2bVL4dYz7yAvmsV_p3vqk_QyvNJY/view?usp=sharing)
 
+- Questão 3: Testes para agendador de eventos
+  - Resposta: [Resposta 3](/answers/q3/README.md)
+
+- Questão 4: Revisão de anti-patterns
+  - Resposta: [Resposta 4](/answers/q4/README.md)
 ---
 
 
