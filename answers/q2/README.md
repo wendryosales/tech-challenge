@@ -12,3 +12,4 @@ Isso elimina o “buraco” entre lançar e publicar e garante a entrega mesmo s
 Se não der para compartilhar a transação, dá para usar uma staging table: o relay lê de lá e publica no bus, garantindo at-least-once para tudo que entrou na staging. O trade-off é a janelinha entre o commit do launch e o insert na staging, se a app cair nesse intervalo, aquele evento pode não existir. 
 
 
+Idempotência por trace_id (producer/consumer → UPSERT).
