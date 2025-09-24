@@ -18,6 +18,16 @@
 
 - Questão 4: Revisão de anti-patterns
   - Resposta: [Resposta 4](/answers/q4/README.md)
+
+- Questão 5: Revisão de anti-patterns
+  - Resposta: [Resposta 4](/answers/q4/README.md)
+
+- Questão 6: Code Review do robô de exportação da tabela `users`
+  - Resposta: [Resposta 6 - BOT ](/answers/q6/bot_review.py)
+  - Review está em forma de comentários no código.
+
+- Questão 7: Design Patterns para normalização de serviços de terceiros
+  - Resposta: [Resposta 7](/answers/q7/README.md)
 ---
 
 
