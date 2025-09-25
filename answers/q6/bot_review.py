@@ -6,17 +6,22 @@ from datetime import datetime, timedelta, timezone
 from apscheduler.schedulers.blocking import BlockingScheduler
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+# REVIEW: Não há rotas HTTP. Considerar remover Flask e Flask-SQLAlchemy.
+#         Use SQLAlchemy puro com `create_engine`.
 from logging.handlers import RotatingFileHandler
 
 def main(argv):
     greetings()
 
     print('Press Crtl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
+    # REVIEW: Preferir `logging`/`app.logger` a `print`, já existe handler configurado.
 
     app = Flask(__name__)
+    # REVIEW: Se não houver rotas, `Flask` é desnecessário; inicialize apenas logging e SQLAlchemy.
     handler = RotatingFileHandler('bot.log', maxBytes=10000, backupCount=1)
     handler.setLevel(logging.INFO)
     app.logger.addHandler(handler)
+    # REVIEW: Se remover Flask, use `logging.getLogger(__name__)` e anexe o handler.
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:123mudar@127.0.0.1:5432/bot_db'
     # REVIEW: Credenciais hardcoded. Usar variáveis de ambiente. Nunca versionar senhas.
     db = SQLAlchemy(app)
@@ -39,6 +44,7 @@ def main(argv):
         pass
 
 def greetings():
+    # REVIEW: Substituir prints por `logging.info()` para padronizar a saída.
     print('             ##########################')
     print('             # - ACME - Tasks Robot - #')
     print('             # - v 1.0 - 2020-07-28 - #')
@@ -68,7 +74,8 @@ def task1(db):
     
     for order in orders:
         index = index + 1
-
+        # REVIEW: Substituir `print` por `app.logger.info()` (ou `logging.info()`).
+        #         Evitar registrar dados sensíveis.
         print('Id: {0}'.format(order[0]))
         worksheet.write('A{0}'.format(index),order[0])
         print('Name: {0}'.format(order[1]))

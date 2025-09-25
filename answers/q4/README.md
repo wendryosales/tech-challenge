@@ -14,12 +14,27 @@
 
 * Mistura de responsabilidades (infra + HTTP + validações) herdando de repositório.
 * Muito acoplamento, viola SRP e dificulta testes.
-* SQL-injection com f-string em várias queries. O correto seria utilizar as queries com parâmetros, algo assim: 
+* SQL-injection com f-string em várias queries. Se já está usando SQLAlchemy, prefira a API de Query/ORM (ou Core) ao invés de montar strings. Exemplos :
 
 ```python
-    row = await session.execute(text(
-        "SELECT access_key FROM secrets WHERE id = :id LIMIT 1"
-    ), {"id": id})
+# ORM/Query (assíncrono)
+from sqlalchemy import select
+
+result = await session.execute(
+    select(Secret.access_key).where(Secret.id == id)
+)
+access_key = result.scalar_one_or_none()
+
+# Alternativa simples quando o modelo existe
+secret = await session.get(Secret, id)
+access_key = secret.access_key if secret else None
+
+# Core com SQL parametrizada (quando precisar de SQL literal)
+from sqlalchemy import text
+row = await session.execute(
+    text("SELECT access_key FROM secrets WHERE id = :id LIMIT 1"),
+    {"id": id},
+)
 ```
 * Algumas chamadas de promises estão sem `await`.
 * Me parece que o método `send_instant_message` está retornando um atributo ao invés de chamar o método `.json()`
