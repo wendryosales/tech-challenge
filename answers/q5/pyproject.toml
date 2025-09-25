@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "q5-user-api"
+version = "0.1.0"
+description = "API REST para criação de usuários (Questão 5)"
+authors = ["Tech Challenge"]
+readme = "README.md"
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+fastapi = "^0.114.0"
+uvicorn = {extras = ["standard"], version = "^0.30.6"}
+sqlalchemy = "^2.0.35"
+asyncpg = "^0.29.0"
+psycopg2-binary = "^2.9.9"
+pydantic = "^2.9.0"
+pydantic-settings = "^2.5.2"
+email-validator = "^2.2.0"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-dotenv = "^1.0.1"
+alembic = "^1.13.2"
+bcrypt = "~3.2.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+httpx = "^0.27.2"
+ruff = "^0.6.9"
+black = "^24.8.0"
+isort = "^5.13.2"
+pytest-asyncio = "^1.2.0"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 120
+target-version = ["py310"]
+exclude = ".venv|alembic/versions/.*"
+
+[tool.isort]
+profile = "black"
+line_length = 120
+skip = [".venv", "alembic/versions"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+exclude = [".venv", "alembic/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = []
+extend-ignore = ["B008", "B904"]

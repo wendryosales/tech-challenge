@@ -19,8 +19,9 @@
 - Questão 4: Revisão de anti-patterns
   - Resposta: [Resposta 4](/answers/q4/README.md)
 
-- Questão 5: Revisão de anti-patterns
-  - Resposta: [Resposta 4](/answers/q4/README.md)
+- Questão 5: API REST de criação de usuário
+  - Projeto: [/answers/q5](./answers/q5/)
+  - Instruções: [/q5/README.md](./answers/q5/README.md)
 
 - Questão 6: Code Review do robô de exportação da tabela `users`
   - Resposta: [Resposta 6 - BOT ](/answers/q6/bot_review.py)

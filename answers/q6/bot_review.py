@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import os, sys, traceback, logging, configparser
-# REVIEW: `traceback`, `timedelta` e `timezone` não são usados; remover imports não utilizados.
+# REVIEW: `traceback`, `timedelta` e `timezone` não são usados. Remover imports não utilizados.
 import xlsxwriter
 from datetime import datetime, timedelta, timezone
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -22,7 +22,7 @@ def main(argv):
     db = SQLAlchemy(app)
     config = configparser.ConfigParser()
     config.read('/tmp/bot/settings/config.ini')
-    # REVIEW: Caminho absoluto frágil. Usar caminho relativo a `__file__` ou env (`BOT_CONFIG_PATH`).
+    # REVIEW: Caminho absoluto frágil. Usar caminho relativo a `__file__`.
 
     var1 = int(config.get('scheduler','IntervalInMinutes'))
     app.logger.warning('Intervalo entre as execucoes do processo: {}'.format(var1))

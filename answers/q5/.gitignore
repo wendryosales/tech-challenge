@@ -1,0 +1,85 @@
+# Python bytecode / cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Poetry (keep poetry.lock versioned)
+.poetry/
+
+# Build artifacts
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Tests / Coverage
+.coverage
+.coverage.*
+.cache/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+htmlcov/
+
+# Type checking / Lint
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.pylint.d/
+
+# IDE / Editor
+.idea/
+.vscode/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Alembic caches (keep migrations versioned)
+alembic/*.pyc
+alembic/__pycache__/
+alembic/versions/__pycache__/
+
+# Docker local data
+docker-data/
+*.pid
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Temporary files
+tmp/
+temp/
+
+
